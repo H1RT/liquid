@@ -181,7 +181,7 @@ For inquiries or permissions, contact daniel@section.store
   
   .collection-media-{{ section.id }} {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     border: {{ media_border_thickness }}px solid {{ media_border_color }};
     border-radius: {{ media_radius }}px;
     display: block;
@@ -780,9 +780,9 @@ For inquiries or permissions, contact daniel@section.store
    tunable via CSS custom properties so it still reads as a wrap while staying
    inside an overflow:hidden container */
 .corner-ribbon.corner-ribbon--tr{
-  --ribbon-width: 13.75rem;
-  --ribbon-offset: 3.75rem;
-  --ribbon-top: 1.25rem;
+  --ribbon-width: 12.5rem;
+  --ribbon-offset: 2.5rem;
+  --ribbon-top: 1.75rem;
   position: absolute;
   z-index: 9;
   top: var(--ribbon-top);
@@ -866,9 +866,9 @@ For inquiries or permissions, contact daniel@section.store
 /* responsive tweak */
 @media (max-width: 767px){
   .corner-ribbon.corner-ribbon--tr{
-    --ribbon-width: 11.5rem;
-    --ribbon-offset: 3.25rem;
-    --ribbon-top: 0.75rem;
+    --ribbon-width: 10.5rem;
+    --ribbon-offset: 1.9rem;
+    --ribbon-top: 1.35rem;
   }
   .corner-ribbon__text{ font-size: 11px; padding: 8px 0; }
 }
