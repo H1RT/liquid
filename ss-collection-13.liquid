@@ -181,7 +181,7 @@ For inquiries or permissions, contact daniel@section.store
   
   .collection-media-{{ section.id }} {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border: {{ media_border_thickness }}px solid {{ media_border_color }};
     border-radius: {{ media_radius }}px;
     display: block;
@@ -222,6 +222,7 @@ For inquiries or permissions, contact daniel@section.store
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: inherit;
   }
 
   .collection-media-{{ section.id }} svg {
