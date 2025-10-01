@@ -779,18 +779,19 @@ For inquiries or permissions, contact daniel@section.store
    then rotates to cut diagonally across the corner */
 .corner-ribbon.corner-ribbon--tr{
   position: absolute;
-  z-index: 9;
-  top: 14px;                 /* adjust: 10–18px depending on taste */
-  right: -58px;              /* pulls it past the right edge so the diagonal shows */
-  width: 230px;              /* band length across the corner */
-  transform: rotate(45deg);
-  transform-origin: center;
-  pointer-events: none;      /* won’t block clicks on the product */
+  z-index: 5;
+  top: 0;
+  right: 0;
+  width: 220px;
+  transform-origin: 100% 0;
+  transform: translate(42%, -78%) rotate(45deg);
+  pointer-events: none;
 }
 
 /* the visible band */
 .corner-ribbon__text{
-  display: inline-flex;
+  position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
@@ -811,6 +812,7 @@ For inquiries or permissions, contact daniel@section.store
   text-align: center;
   white-space: nowrap;
   pointer-events: auto;            /* clickable if you turn it into <a> */
+  transform: rotate(-45deg);
 }
 
 /* subtle gold “end caps” to finish the edges */
@@ -838,7 +840,7 @@ For inquiries or permissions, contact daniel@section.store
 /* top face */
 .corner-ribbon.corner-ribbon--tr::before{
   top:-6px;
-  right:46%;
+  right:42%;
   width:30%;
   height:6px;
   border-top:2px solid #d4af37;
@@ -846,10 +848,10 @@ For inquiries or permissions, contact daniel@section.store
 
 /* right face */
 .corner-ribbon.corner-ribbon--tr::after{
-  top:22%;
+  top:24%;
   right:-6px;
   width:6px;
-  height:30%;
+  height:32%;
   border-right:2px solid #d4af37;
 }
 
@@ -860,7 +862,10 @@ For inquiries or permissions, contact daniel@section.store
 
 /* responsive tweak */
 @media (max-width: 767px){
-  .corner-ribbon.corner-ribbon--tr{ width: 190px; right: -48px; top: 10px; }
+  .corner-ribbon.corner-ribbon--tr{
+    width: 180px;
+    transform: translate(45%, -82%) rotate(45deg);
+  }
   .corner-ribbon__text{ font-size: 11px; padding: 8px 0; }
 }
 
