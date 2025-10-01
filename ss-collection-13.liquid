@@ -181,7 +181,7 @@ For inquiries or permissions, contact daniel@section.store
   
   .collection-media-{{ section.id }} {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     border: {{ media_border_thickness }}px solid {{ media_border_color }};
     border-radius: {{ media_radius }}px;
     display: block;
@@ -777,15 +777,19 @@ For inquiries or permissions, contact daniel@section.store
 .collection-media-{{ section.id }} { position: relative; }
 
 /* the wrapper sits a little down from the top and a little past the right edge,
-   then rotates to cut diagonally across the corner */
+   tunable via CSS custom properties so it still reads as a wrap while staying
+   inside an overflow:hidden container */
 .corner-ribbon.corner-ribbon--tr{
+  --ribbon-width: 21rem;
+  --ribbon-offset: 1.6rem;
+  --ribbon-top: 3.35rem;
   position: absolute;
   z-index: 9;
-  top: 14px;                 /* adjust: 10–18px depending on taste */
-  right: -58px;              /* pulls it past the right edge so the diagonal shows */
-  width: 230px;              /* band length across the corner */
+  top: var(--ribbon-top);
+  right: calc(var(--ribbon-offset) * -1);
+  width: var(--ribbon-width);
   transform: rotate(45deg);
-  transform-origin: center;
+  transform-origin: 100% 0;
   pointer-events: none;      /* won’t block clicks on the product */
 }
 
@@ -861,7 +865,11 @@ For inquiries or permissions, contact daniel@section.store
 
 /* responsive tweak */
 @media (max-width: 767px){
-  .corner-ribbon.corner-ribbon--tr{ width: 190px; right: -48px; top: 10px; }
+  .corner-ribbon.corner-ribbon--tr{
+    --ribbon-width: 17rem;
+    --ribbon-offset: 1.15rem;
+    --ribbon-top: 2.6rem;
+  }
   .corner-ribbon__text{ font-size: 11px; padding: 8px 0; }
 }
 
